@@ -2,6 +2,7 @@ import React from 'react';
 import './Modal.css'
 
 export default function Modal({ open, onClose, content }) {
+  
   if (!open) return;
 
   return(
@@ -13,5 +14,5 @@ export default function Modal({ open, onClose, content }) {
         </div>
       </div>
     </div>
-  ) ;
+  );
 }

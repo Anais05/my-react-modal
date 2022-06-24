@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import Modal from './lib/Modal';
+import Modal from './lib/components/Modal';
 
 export default function App()  {
   const [open, setOpen] = useState(false);
