@@ -9,6 +9,12 @@
   ],
   "private": false,
   "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/Anais05/my-react-modal.git"
@@ -41,6 +47,7 @@
     "@babel/cli": "^7.17.10",
     "@babel/core": "^7.18.5",
     "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "^7.17.12",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1"
