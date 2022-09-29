@@ -1,7 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Modal.css'
 
 export default function Modal({ open, onClose, content, theme }) {
+
+  const [isHover, setIsHover] = useState(false);
+
+  const btnStyle = {
+    color: isHover ? theme.closeBtnBgColor : theme.closeBtnColor,
+    backgroundColor: isHover ? theme.closeBtnColor : theme.closeBtnBgColor,
+    border: `0.1px solid ${theme.closeBtnBgColor}`
+  };
+
+  const handleMouseEnter = () => {
+    setIsHover(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHover(false);
+  };
   
   if (!open) return;
 
@@ -12,8 +28,10 @@ export default function Modal({ open, onClose, content, theme }) {
         <div className="content">
           {content}
         </div>
-        <button style={{color: theme.closeBtnColor, backgroundColor: theme.closeBtnBgColor}}
+        <button style={btnStyle}
           className='close-btn' onClick={onClose}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
         >
           Close
         </button>

@@ -3,7 +3,8 @@ import './Modal.css';
 export default function Modal({
   open,
   onClose,
-  content
+  content,
+  theme
 }) {
   if (!open) return;
   return /*#__PURE__*/React.createElement("div", {
@@ -15,9 +16,16 @@ export default function Modal({
       e.stopPropagation();
     }
   }, /*#__PURE__*/React.createElement("p", {
-    className: "close-btn",
+    className: "close-icon",
     onClick: onClose
   }, "X"), /*#__PURE__*/React.createElement("div", {
     className: "content"
-  }, content)));
+  }, content), /*#__PURE__*/React.createElement("button", {
+    style: {
+      color: theme.closeBtnColor,
+      backgroundColor: theme.closeBtnBgColor
+    },
+    className: "close-btn",
+    onClick: onClose
+  }, "Close")));
 }

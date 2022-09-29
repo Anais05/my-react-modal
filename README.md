@@ -17,13 +17,16 @@ or
 ## Example
 
 ```js
-import React from "react";
-import { useState } from "react";
-import { Modal } from "simple-react-modal-by-assamoi";
+import React, { useState } from "react";
+import Modal from "./lib/components/Modal";
 
 export default function App() {
   const [open, setOpen] = useState(false);
   const ModalContent = "You can write the content of your modal here !!";
+  const myTheme = {
+    closeBtnColor: "#ffffff",
+    closeBtnBgColor: "#008000",
+  };
 
   return (
     <div>
@@ -33,6 +36,7 @@ export default function App() {
       <Modal
         open={open}
         content={ModalContent}
+        theme={myTheme}
         onClose={() => setOpen(false)}
       />
     </div>
@@ -42,4 +46,4 @@ export default function App() {
 
 ## Demo
 
-![](src/demo/demo-modal.gif)
+![](src/demo/modal-demo.gif)
