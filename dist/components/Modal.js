@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Modal.css';
 export default function Modal({
   open,
@@ -6,6 +6,21 @@ export default function Modal({
   content,
   theme
 }) {
+  const [isHover, setIsHover] = useState(false);
+  const btnStyle = {
+    color: isHover ? theme.closeBtnBgColor : theme.closeBtnColor,
+    backgroundColor: isHover ? theme.closeBtnColor : theme.closeBtnBgColor,
+    border: `0.1px solid ${theme.closeBtnBgColor}`
+  };
+
+  const handleMouseEnter = () => {
+    setIsHover(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHover(false);
+  };
+
   if (!open) return;
   return /*#__PURE__*/React.createElement("div", {
     className: "overlay",
@@ -21,11 +36,10 @@ export default function Modal({
   }, "X"), /*#__PURE__*/React.createElement("div", {
     className: "content"
   }, content), /*#__PURE__*/React.createElement("button", {
-    style: {
-      color: theme.closeBtnColor,
-      backgroundColor: theme.closeBtnBgColor
-    },
+    style: btnStyle,
     className: "close-btn",
-    onClick: onClose
+    onClick: onClose,
+    onMouseEnter: handleMouseEnter,
+    onMouseLeave: handleMouseLeave
   }, "Close")));
 }
