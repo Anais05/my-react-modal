@@ -18,7 +18,7 @@ or
 
 ```js
 import React, { useState } from "react";
-import Modal from "./lib/components/Modal";
+import { Modal } from "simple-react-modal-by-assamoi";
 
 export default function App() {
   const [open, setOpen] = useState(false);
